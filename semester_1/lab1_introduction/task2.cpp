@@ -1,15 +1,15 @@
-/*#include <iostream>
-using namespace std;
+#include <iostream>
+
 
  int main() {
     setlocale(LC_ALL, "Rus");
 
     int n;
-    cout << "Введите натуральное число n: ";
-    cin >> n;
+    std::cout <<  "input n: "<< std::endl;
+    std::cin >> n;
 
     if (n <= 0) {
-        cout << "Ошибка: число должно быть натуральным (n > 0)" << endl;
+        std::cout << "error, n must be > 0)" << std::endl;
         
     }
 
@@ -27,9 +27,8 @@ using namespace std;
         }
     }
 
-    cout << "Сумма всех четных чисел от 1 до " << n << ": " << sumEven << endl;
-    cout << "Произведение всех нечетных чисел от 1 до " << n << ": " << productOdd << endl;
+    std::cout << "sum from 1 to n " << n << ": " << sumEven << std::endl;
+    std::cout << "product from 1 to n " << n << ": " << productOdd << std::endl;
 
     return 0;
 }
-*/

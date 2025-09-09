@@ -1,24 +1,23 @@
-/**#include <iostream>
-using namespace std;
+#include <iostream>
+
 int main()
 {
 	setlocale(LC_ALL, "Rus");
 
 	int n, m;
-	cout << "введите 2 натуральных числа n и m: " << endl;
-	cin >> n >> m;
-	if (n <= 0 and m <= 0) {
-		cout << "Ошибка, числа должны быть натуральными" << endl;
+	std::cout << "input 2 integers n Рё m: " << std::endl;
+	std::cin >> n >> m;
+	if (n <= 0 && m <= 0) {
+		std::cout << "error" << std::endl;
 	}
 	
-	cout << "общие делители: " << n << " and " << m << endl;
+	std::cout << "common factors: " << n << " and " << m << std::endl;
 	for (int i = 1; i <= n; i++) {
 		if (n % i == 0 && m % i == 0) {
-			cout << i << " ";
+			std::cout << i << " ";
 		}
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	return 0;
 }
-*/

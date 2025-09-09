@@ -1,13 +1,13 @@
-/* #include <iostream>
-using namespace std;
+ #include <iostream>
+
 int main()
 {
 	setlocale(LC_ALL, "Rus");
 	int n;
-	cout << "write n:" << endl;
-	cin >> n;
+	std::cout << "write n:" << std::endl;
+	std::cin >> n;
 	if (n <= 0) {
-		cout << "Ошибка: число должно быть натуральным (n > 0)" << endl;
+		std::cout << "error, n must be > 0" << std::endl;
 	}
 	int sum = 0;
 	int productOdd = 1;
@@ -15,7 +15,6 @@ int main()
 		sum += productOdd;
 		productOdd += 2;
 	}
-	cout << " сумма первых  " <<  n  << " нечётных чисел равна " <<  sum  << endl;
+	std::cout << " sum of the first   " <<  n  << " odd numbers is equal to " <<  sum  << std::endl;
 	return 0;
 }
-*/
