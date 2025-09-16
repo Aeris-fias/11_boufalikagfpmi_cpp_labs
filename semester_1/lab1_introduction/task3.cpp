@@ -3,11 +3,13 @@
 
 int main()
 {	
-	setlocale(LC_ALL, "Rus");
+	
 
 	int n;
 	std::cout << "enter n: "<< std::endl;
-	std::cin >> n;
+	if (!(std::cin>>n)) {
+        std::cout << "error, incorrect n)" << std::endl;
+        std::exit(1);
 	int s = 0;
 	for (int i = 1; i <= n; i++) {
 		s += pow(i, i);

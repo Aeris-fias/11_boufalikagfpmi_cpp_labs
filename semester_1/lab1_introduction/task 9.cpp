@@ -2,7 +2,7 @@
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
+	
 	int n;
 	std::cout << "input four-digit n:" << std::endl;
 	std::cin >> n;

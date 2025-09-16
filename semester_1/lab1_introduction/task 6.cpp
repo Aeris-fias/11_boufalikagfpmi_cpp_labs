@@ -2,12 +2,13 @@
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
+	
 	int n;
 	std::cout << "write n:" << std::endl;
 	std::cin >> n;
-	if (n <= 0) {
-		std::cout << "error, n must be > 0" << std::endl;
+	if (!(std::cin>>n)) {
+        std::cout << "error, incorrect n)" << std::endl;
+		std::exit(1);
 	}
 	int sum = 0;
 	int productOdd = 1;

@@ -2,13 +2,14 @@
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
+	
 
 	int n, m;
 	std::cout << "input 2 integers n и m: " << std::endl;
 	std::cin >> n >> m;
-	if (n <= 0 && m <= 0) {
-		std::cout << "error" << std::endl;
+	if (!(std::cin>>n)) {
+        std::cout << "error, incorrect n)" << std::endl;
+        std::exit(1);
 	}
 	
 	std::cout << "common factors: " << n << " and " << m << std::endl;
