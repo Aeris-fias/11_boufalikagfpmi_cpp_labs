@@ -6,7 +6,7 @@
 
     int n;
     std::cout <<  "input n: "<< std::endl;
-    std::cin >> n;
+   
 
     if (!(std::cin>>n)) {
         std::cout << "error, incorrect n)" << std::endl;
@@ -19,7 +19,7 @@
 
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
-            
+             
             sum += i;
         }
         else {

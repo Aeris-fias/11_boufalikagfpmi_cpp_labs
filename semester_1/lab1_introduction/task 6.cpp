@@ -5,7 +5,6 @@ int main()
 	
 	int n;
 	std::cout << "write n:" << std::endl;
-	std::cin >> n;
 	if (!(std::cin>>n)) {
         std::cout << "error, incorrect n)" << std::endl;
 		std::exit(1);
