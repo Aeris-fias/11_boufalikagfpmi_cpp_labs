@@ -11,7 +11,7 @@ int main()
 		std::cout << n << "- palindrom " << std::endl;
 	}
 	else {
-		std::cout << n << " - palindrom" << std::endl;
+		std::cout << n << " - no palindrom" << std::endl;
 
 	}
 	return 0;

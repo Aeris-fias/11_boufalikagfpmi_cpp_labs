@@ -11,10 +11,10 @@ int main()
 		std::exit(1);
 	}
 	int sum = 0;
-	int productOdd = 1;
+	int pr = 1;
 	for (int i = 0; i < n; i++) {
-		sum += productOdd;
-		productOdd += 2;
+		sum += pr;
+		pr += 2;
 	}
 	std::cout << " sum of the first   " <<  n  << " odd numbers is equal to " <<  sum  << std::endl;
 	return 0;

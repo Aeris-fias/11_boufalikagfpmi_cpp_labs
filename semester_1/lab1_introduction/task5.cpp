@@ -6,9 +6,9 @@ int main()
 
 	int n, m;
 	std::cout << "input 2 integers n и m: " << std::endl;
-	std::cin >> n >> m;
-	if (!(std::cin>>n)) {
-        std::cout << "error, incorrect n)" << std::endl;
+	
+	if (!(std::cin>>n>>m)) {
+        std::cout << "error, incorrect n and m)" << std::endl;
         std::exit(1);
 	}
 	

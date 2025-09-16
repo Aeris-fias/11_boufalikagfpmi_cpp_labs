@@ -14,22 +14,22 @@
         
     }
 
-    int sumEven = 0;    
-    int productOdd = 1; 
+    int sum = 0;    
+    int pr = 1; 
 
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             
-            sumEven += i;
+            sum += i;
         }
         else {
             
-            productOdd *= i;
+            pr *= i;
         }
     }
 
-    std::cout << "sum from 1 to n " << n << ": " << sumEven << std::endl;
-    std::cout << "product from 1 to n " << n << ": " << productOdd << std::endl;
+    std::cout << "sum from 1 to n " << n << ": " << sum << std::endl;
+    std::cout << "product from 1 to n " << n << ": " << pr << std::endl;
 
     return 0;
 }
