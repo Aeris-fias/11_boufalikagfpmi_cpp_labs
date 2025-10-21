@@ -71,12 +71,10 @@ double sumAfterFirstPositive(double* arr, int n) {
         }
     }
 
-    // Если положительный элемент не найден или он последний
     if (firstPositiveIndex == -1 || firstPositiveIndex == n - 1) {
         return 0;
     }
 
-    // Считаем сумму элементов после первого положительного
     double sum = 0;
     for (int i = firstPositiveIndex + 1; i < n; i++) {
         sum += arr[i];
@@ -86,32 +84,16 @@ double sumAfterFirstPositive(double* arr, int n) {
 
 // Преобразование массива
 void transformArray(double* arr, int n) {
-    // Создаем временный массив для результата
-    double* temp = new double[n];
-    int index = 0;
-
-    // Сначала добавляем элементы с целой частью в [0;10]
+    int insertPos = 0;
     for (int i = 0; i < n; i++) {
         int intPart = static_cast<int>(arr[i]);
         if (intPart >= 0 && intPart <= 10) {
-            temp[index++] = arr[i];
+            if (i != insertPos) {
+                std::swap(arr[insertPos], arr[i]);
+            }
+            insertPos++;
         }
     }
-
-    // Затем добавляем все остальные элементы
-    for (int i = 0; i < n; i++) {
-        int intPart = static_cast<int>(arr[i]);
-        if (intPart < 0 || intPart > 10) {
-            temp[index++] = arr[i];
-        }
-    }
-
-    // Копируем результат обратно в исходный массив
-    for (int i = 0; i < n; i++) {
-        arr[i] = temp[i];
-    }
-
-    delete[] temp;
 }
 
 int main() {
@@ -122,16 +104,13 @@ int main() {
     std::cout << "Enter the array size: ";
     std::cin >> n;
 
-    // Проверка корректности размера массива
     if (n <= 0) {
         std::cout << " The array size must be positive! " << std::endl;
         return 1;
     }
 
-    // Создание динамического массива
     double* arr = new double[n];
 
-    // Выбор способа заполнения
     std::cout << "\nChoose Hand Input or Random Input (h/r):" << std::endl;
     std::cin >> option;
     switch (option) {
@@ -150,20 +129,16 @@ int main() {
        
     
 
-    // Вывод исходного массива
     std::cout << "\nOriginal array:" << std::endl;
     printArray(arr, n);
 
-    // Номер максимального по модулю элемента
     int maxAbsIndex = findMaxAbsIndex(arr, n);
     std::cout << "The number of the maximum element by module: " << maxAbsIndex << std::endl;
     std::cout << "   Meaning: " << arr[maxAbsIndex] << ", absolute: " << fabs(arr[maxAbsIndex]) << std::endl;
 
-    // Сумма элементов после первого положительного
     double sum = sumAfterFirstPositive(arr, n);
     std::cout << "Sum after the first positive number: " << sum << std::endl;
 
-    // Преобразование массива
     transformArray(arr, n);
     std::cout << "\nConverted array:" << std::endl;
     printArray(arr, n);
