@@ -84,14 +84,19 @@ double sumAfterFirstPositive(double* arr, int n) {
 
 // Преобразование массива
 void transformArray(double* arr, int n) {
-    int insertPos = 0;
-    for (int i = 0; i < n; i++) {
-        int intPart = static_cast<int>(arr[i]);
+    int writePos = 0;
+    
+    for (int readPos = 0; readPos < n; readPos++) {
+        int intPart = static_cast<int>(arr[readPos]);
         if (intPart >= 0 && intPart <= 10) {
-            if (i != insertPos) {
-                std::swap(arr[insertPos], arr[i]);
+            if (readPos != writePos) {
+                double temp = arr[readPos];
+                for (int j = readPos; j > writePos; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[writePos] = temp;
             }
-            insertPos++;
+            writePos++;
         }
     }
 }
