@@ -5,7 +5,7 @@
 #include <random>
 
 const int MAX_SIZE = 100;
-void random(int random_arr[], int size) {
+void random(int* random_arr, int size) {
 	int lower_limit, upper_limit;
 
 	std::cout << "Enter the range of random: ";
@@ -25,7 +25,7 @@ void random(int random_arr[], int size) {
 	}
 }
 
-void hand(int hand_arr[], int size) {
+void hand(int *hand_arr, int size) {
 
 	std::cout << "Enter the elements of array: ";
 
@@ -37,11 +37,11 @@ void hand(int hand_arr[], int size) {
 	}
 
 }
-int main() {
+int min() {
 	int arr[MAX_SIZE];
 	int n;
 	char option;
-
+	   
 	std::cout << "enter number of elements not more than " << MAX_SIZE << ":";
 	if (!(std::cin >> n) || n <= 0 || n > MAX_SIZE) {
 		std::cout << "error. incorrect input!" << std::endl;
@@ -95,18 +95,22 @@ int main() {
 		}
 		std::cout << " Productodd between two zeros:  " << prod << std::endl;
 	}
+	int temp[MAX_SIZE];
+	int evenIndex;
 	for (int i = 0; i < n; i++) {	
-		if (arr[i] % 2 != 0) {
-			for (int j = i + 1; j < n; j++) {
-				if (arr[j] % 2 == 0) {
-					int temp = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp;
-					break;
-				}
-			}
-		}
-	}
+		if (arr[i] % 2 ==0) {
+			temp[evenIndex++] = arr[i];
+        }
+    }
+			for (int i = 0; i < n; i++) {
+				if (arr[i] % 2 !=0) {
+			 temp[evenIndex++] = arr[i];
+        }
+    }
+		for (int i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }	
+		
 	std::cout << " \nConverted array:  ";
 	for (int i = 0; i < n; i++) {
 		std::cout << arr[i] << " ";

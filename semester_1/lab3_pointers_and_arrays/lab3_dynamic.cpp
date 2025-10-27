@@ -31,7 +31,7 @@ void random(double* random_arr, int size){
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    std::uniform_int_distribution<> distrib(lower_limit, upper_limit);
+    std::uniform_real_distribution<> distrib(lower_limit, upper_limit);
 
     for (int i = 0; i < size; i++) {
         random_arr[i] = distrib(gen);
@@ -48,17 +48,17 @@ void printArray(double* arr, int n) {
 }
 
 // Нахождение номера максимального по модулю элемента
-int findMaxAbsIndex(double* arr, int n) {
-    int maxIndex = 0;
+int findMaxAbsNumber(double* arr, int n) {
+    int maxNumber = 1;
     double maxAbs = fabs(arr[0]);
 
     for (int i = 1; i < n; i++) {
         if (fabs(arr[i]) > maxAbs) {
             maxAbs = fabs(arr[i]);
-            maxIndex = i;
+            maxNumber= i+1;
         }
     }
-    return maxIndex;
+    return maxNumber;
 }
 
 // Сумма элементов после первого положительного элемента
@@ -72,7 +72,7 @@ double sumAfterFirstPositive(double* arr, int n) {
     }
 
     if (firstPositiveIndex == -1 || firstPositiveIndex == n - 1) {
-        return 0;
+        std::cout << "Warning! Edge case: the last positive is either on n-th position or there are not positives at all, so the sum is ";
     }
 
     double sum = 0;
@@ -107,12 +107,10 @@ int main() {
     char option;
 
     std::cout << "Enter the array size: ";
-    std::cin >> n;
-
-    if (n <= 0) {
-        std::cout << " The array size must be positive! " << std::endl;
-        return 1;
-    }
+    if (!(std::cin >> n) || n <= 0) {
+		std::cout << "error. incorrect input!" << std::endl;
+		std::exit(1);
+	}
 
     double* arr = new double[n];
 
@@ -130,24 +128,16 @@ int main() {
         delete[] arr;
         std::exit(1);
     }      
- 
-       
-    
-
     std::cout << "\nOriginal array:" << std::endl;
     printArray(arr, n);
-
-    int maxAbsIndex = findMaxAbsIndex(arr, n);
+    int maxAbsIndex = findMaxAbsNumber(arr, n);
     std::cout << "The number of the maximum element by module: " << maxAbsIndex << std::endl;
     std::cout << "   Meaning: " << arr[maxAbsIndex] << ", absolute: " << fabs(arr[maxAbsIndex]) << std::endl;
-
     double sum = sumAfterFirstPositive(arr, n);
     std::cout << "Sum after the first positive number: " << sum << std::endl;
-
     transformArray(arr, n);
     std::cout << "\nConverted array:" << std::endl;
     printArray(arr, n);
     delete[] arr;
-
     return 0;
 }
