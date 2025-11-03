@@ -51,13 +51,15 @@ void random(int** matrix, int n) {
 
     std::cout << "Enter the range of random: ";
 
-    if (!(std::cin >> lower_limit >> upper_limit) || lower_limit > upper_limit) {
-        std::cout << "Incorrect input! 1st integer must be lower than 2nd.\n";
+    if (!(std::cin >> lower_limit >> upper_limit)) {
+        std::cout << "Incorrect input!\n";
 
         deleteMatrix(matrix, n);
         std::exit(1);
     }
-
+    if (lower_limit > upper_limit) {
+    std::swap(lower_limit, upper_limit);
+    }
     std::random_device rd;
     std::mt19937 gen(rd());
 
@@ -81,8 +83,8 @@ int findMaxInLowerRightTriangle(int** matrix, int n) {
                 }
             }
         }
-        return maxElement;
     }
+    return maxElement;
 }
     //  Функция для поиска максимального положительного элемента и его позиции
     void findMaxPositiveElement(int** matrix, int n, int* maxRow, int* maxCol, int* maxValue) {
@@ -128,13 +130,10 @@ void rearrangeMatrix(int** matrix, int n) {
     }
     std::cout << "Maximum positive element: " << maxValue
         << " at position [" << maxRow << "][" << maxCol << "]" << std::endl;
-    //  Переставляем строку с максимальным элементом на первую позицию
         if (maxRow != 0) {
         swapRows(matrix, n, 0, maxRow);
         std::cout << "Swapped rows 0 and " << maxRow << std::endl;
     }
-
-    //  Переставляем столбец с максимальным элементом на первую позицию
     if (maxCol != 0) {
         swapColumns(matrix, n, 0, maxCol);
         std::cout << "Swapped columns 0 and " << maxCol << std::endl;
