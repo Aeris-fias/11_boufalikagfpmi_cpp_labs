@@ -233,9 +233,6 @@ int main() {
     try {
         std::cout << "Enter the num of rows and columns: ";
         n = read_matrix_size();
-        n = read_matrix_size();
-
-
         allocate_matrix(matrix, n);
         std::cout << "Choose Hand Input or Random Input (h/r): ";
         std::cin >> option;
